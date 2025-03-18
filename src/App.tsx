@@ -10,6 +10,7 @@ function App() {
   const [mainButtonTextColor, setMainButtonTextColor] = useState('#000');
   const [mainButtonColor, setMainButtonColor] = useState('#fff');
   const [mainButtonDisabledColor, setMainButtonDisabledColor] = useState('#00000050');
+  const [authResult, setAuthResult] = useState('');
   const forceUpdate = useForceUpdate();
 
   const updateMainButton = () => {
@@ -93,9 +94,13 @@ function App() {
       </div>
       <div>
         <h2>Auth</h2>
+        <div className="item">
+          {authResult && <span className="ok">{authResult}</span>}
+        </div>
         <div className="item final">
           <button onClick={() => {
             (window as any).invokeNativeFunc('client:dapp-verify-password', [], (result: any) => {
+              setAuthResult(result);
               console.log(result);
             });
           }}>Start auth</button>
