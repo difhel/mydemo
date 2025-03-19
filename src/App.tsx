@@ -35,16 +35,16 @@ function App() {
       <h1>MyTonWallet Demo DApp</h1>
       <ul>
         <li>
-          Is MyTonWallet environment? {window.mytonwalletClient ? <span className="ok">true</span> : <span className="error">false</span>}
+          Is MyTonWallet environment? {window.myTonWalletClient ? <span className="ok">true</span> : <span className="error">false</span>}
         </li>
         <li>
-          MyTonWallet version: <b>{window.mytonwalletClient?.v}</b>
+          MyTonWallet version: <b>{window.myTonWalletClient?.v}</b>
         </li>
         <li>
-          MyTonWallet styles injected: {window.mytonwalletClient?.$internal.stylesInjected ? <span className="ok">true</span> : <span className="error">false</span>}
+          MyTonWallet styles injected: {window.myTonWalletClient?.$internal.stylesInjected ? <span className="ok">true</span> : <span className="error">false</span>}
         </li>
         <li>
-          window.visualViewport patched for virtual keyboard: {window.mytonwalletClient?.$internal.virtualKeyboardHeightChangeReady ? <span className="ok">true</span> : <span className="error">false</span>}
+          window.visualViewport patched for virtual keyboard: {window.myTonWalletClient?.$internal.virtualKeyboardHeightChangeReady ? <span className="ok">true</span> : <span className="error">false</span>}
         </li>
       </ul>
 

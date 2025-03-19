@@ -1,6 +1,6 @@
 export declare global {
     interface Window {
-        mytonwalletClient?: {
+        myTonWalletClient?: {
             v: string;
             $internal: {
                 stylesInjected: boolean;
