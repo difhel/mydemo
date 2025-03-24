@@ -106,6 +106,17 @@ function App() {
           }}>Start auth</button>
         </div>
       </div>
+      <div>
+        <h2>TON Connect</h2>
+        <div className="item">
+          {authResult && <span className="ok">{authResult}</span>}
+        </div>
+        <div className="item final">
+          <button onClick={() => {
+            window['dapp-client']?.openEnrollment();
+          }}>Start auth</button>
+        </div>
+      </div>
     </>
   )
 }

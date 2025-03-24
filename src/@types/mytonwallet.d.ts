@@ -15,6 +15,9 @@ export declare global {
             offClick: (callback: () => void) => void;
             showProgress: () => void;
             hideProgress: () => void;
+        },
+        'dapp-client'?: {
+            openEnrollment: () => void;
         }
     }
 }
