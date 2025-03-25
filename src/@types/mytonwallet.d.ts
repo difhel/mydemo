@@ -17,7 +17,13 @@ export declare global {
             hideProgress: () => void;
         },
         'dapp-client'?: {
+            openUrl: (url: string) => void;
             openEnrollment: () => void;
+            showKeyboardAccessoryView: (isShow: boolean) => void; // noop
+            lockScroll: (isLocked: boolean) => void; // noop since scrolling is locked by default
+            subscribed: (isSubscribed: boolean) => void;
+            closeApp: () => void;
+
         },
         'dapp-auth'?: {
             authenticate: (callback: (result: { isAuthenticated: boolean; error: string }) => void) => void;
