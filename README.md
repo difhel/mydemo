@@ -1,5 +1,5 @@
 # MyTonWallet Demo Dapp
-Demo app for testing MyTonWallet-specific in-app browsers APIs.
+Demo app for testing MyTonWallet-specific in-app browser APIs.
 
 URL: `https://aura.myinfra.dev`
 
