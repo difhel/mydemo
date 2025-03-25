@@ -93,28 +93,25 @@ function App() {
         </div>
       </div>
       <div>
-        <h2>Auth</h2>
+        <h2>Auth (verify wallet password)</h2>
         <div className="item">
           {authResult && <span className="ok">{authResult}</span>}
         </div>
         <div className="item final">
           <button onClick={() => {
-            (window as any).invokeNativeFunc('client:dapp-verify-password', [], (result: any) => {
+            window['dapp-auth']?.authenticate((result: { isAuthenticated: boolean; error: string }) => {
               setAuthResult(result);
-              console.log(result);
+              console.log(result, typeof result);
             });
           }}>Start auth</button>
         </div>
       </div>
       <div>
-        <h2>TON Connect</h2>
-        <div className="item">
-          {authResult && <span className="ok">{authResult}</span>}
-        </div>
+        <h2>TON Connect (enrollment)</h2>
         <div className="item final">
           <button onClick={() => {
             window['dapp-client']?.openEnrollment();
-          }}>Start auth</button>
+          }}>Start enrollment</button>
         </div>
       </div>
     </>

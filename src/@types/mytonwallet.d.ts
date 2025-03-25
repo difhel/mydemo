@@ -18,6 +18,9 @@ export declare global {
         },
         'dapp-client'?: {
             openEnrollment: () => void;
+        },
+        'dapp-auth'?: {
+            authenticate: (callback: (result: { isAuthenticated: boolean; error: string }) => void) => void;
         }
     }
 }
