@@ -100,7 +100,7 @@ function App() {
         <div className="item final">
           <button onClick={() => {
             window['dapp-auth']?.authenticate((result: { isAuthenticated: boolean; error: string }) => {
-              setAuthResult(result);
+              setAuthResult(result as unknown as string);
               console.log(result, typeof result);
             });
           }}>Start auth</button>
