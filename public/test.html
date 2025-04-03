@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        if (!window['dapp-client']) {
-            document.body.innerHTML = '<h1>dapp-client not found</h1>';
-        } else {
-            document.body.innerHTML = '<h1>dapp-client found</h1>';
+        function test(stage) {
+            if (!window['dapp-client']) {
+                document.body.innerHTML = `<h1>dapp-client not found on stage ${stage}</h1>`;
+            } else {
+                document.body.innerHTML = `<h1>dapp-client found on stage ${stage}</h1>`;
+            }
         }
+        test('in body');
+        document.addEventListener('DOMContentLoaded', () => {
+            test('DOMContentLoaded');
+        });
+        setTimeout(() => {
+            test('setTimeout 100');
+        }, 100);
+        setTimeout(() => {
+            test('setTimeout 1000');
+        }, 1000);
     </script>
 </body>
+
 </html>
