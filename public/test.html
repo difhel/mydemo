@@ -6,11 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let isDomLoaded = false;
+        function write(text) {
+            const callback = () => {
+                document.body.innerHTML = document.body.innerHTML + `<h3>${text}</h3>`;
+                isDomLoaded = true;
+            };
+            if (isDomLoaded) {
+                callback();
+            } else {
+                document.addEventListener('DOMContentLoaded', callback);
+            }
+        }
         function test(entity, stage) {
             if (!window[entity]) {
-                document.body.innerHTML = document.body.innerHTML + `<h3>${entity} not found on stage ${stage}</h3>`;
+                write(`${entity} not found on stage ${stage}`);
             } else {
-                document.body.innerHTML = document.body.innerHTML + `<h3>${entity} found on stage ${stage}</h3>`;
+                write(`${entity} found on stage ${stage}`);
             }
         }
         test('dapp-client', 'in head');
