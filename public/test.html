@@ -9,22 +9,26 @@
 
 <body>
     <script>
-        function test(stage) {
-            if (!window['dapp-client']) {
-                document.body.innerHTML = document.body.innerHTML + `<h1>dapp-client not found on stage ${stage}</h1>`;
+        function test(entity, stage) {
+            if (!window[entity]) {
+                document.body.innerHTML = document.body.innerHTML + `<h1>${entity} not found on stage ${stage}</h1>`;
             } else {
-                document.body.innerHTML = document.body.innerHTML + `<h1>dapp-client found on stage ${stage}</h1>`;
+                document.body.innerHTML = document.body.innerHTML + `<h1>${entity} found on stage ${stage}</h1>`;
             }
         }
-        test('in body');
+        test('dapp-client', 'in body');
+        test('initialState', 'in body');
         document.addEventListener('DOMContentLoaded', () => {
-            test('DOMContentLoaded');
+            test('dapp-client', 'DOMContentLoaded');
+            test('initialState', 'DOMContentLoaded');
         });
         setTimeout(() => {
-            test('setTimeout 100');
+            test('dapp-client', 'setTimeout 100');
+            test('initialState', 'setTimeout 100');
         }, 100);
         setTimeout(() => {
-            test('setTimeout 1000');
+            test('dapp-client', 'setTimeout 1000');
+            test('initialState', 'setTimeout 1000');
         }, 1000);
     </script>
 </body>
