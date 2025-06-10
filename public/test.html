@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function test(entity, stage) {
+            if (!window[entity]) {
+                document.body.innerHTML = document.body.innerHTML + `<h3>${entity} not found on stage ${stage}</h3>`;
+            } else {
+                document.body.innerHTML = document.body.innerHTML + `<h3>${entity} found on stage ${stage}</h3>`;
+            }
+        }
+        test('dapp-client', 'in head');
+        test('initialState', 'in head');
+    </script>
 </head>
 
 <body>
     <script>
-        function test(entity, stage) {
-            if (!window[entity]) {
-                document.body.innerHTML = document.body.innerHTML + `<h1>${entity} not found on stage ${stage}</h1>`;
-            } else {
-                document.body.innerHTML = document.body.innerHTML + `<h1>${entity} found on stage ${stage}</h1>`;
-            }
-        }
         test('dapp-client', 'in body');
         test('initialState', 'in body');
         document.addEventListener('DOMContentLoaded', () => {
